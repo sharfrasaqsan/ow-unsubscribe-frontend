@@ -82,7 +82,7 @@ function Unsubscribeform() {
 
   const submitData = (token) => {
     // call a backend API to verify reCAPTCHA response
-    fetch("http://localhost:4000/verify", {
+    fetch("https://ow-unsubscribe-backend.vercel.app/verify", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
