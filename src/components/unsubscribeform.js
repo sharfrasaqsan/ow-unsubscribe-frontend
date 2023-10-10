@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Logo from "../OW-Logo.svg";
 import "./unsubscribeform.css";
 import { useNavigate } from "react-router-dom";
+import axios from "axios"; // Import Axios
 
 const SITE_KEY = "6LepYnkoAAAAAFCTztSJTtV2TFhRT6IzGkgqP8DE";
 
@@ -82,30 +83,23 @@ function Unsubscribeform() {
 
   const submitData = (token) => {
     // call a backend API to verify reCAPTCHA response
-    fetch("https://ow-unsubscribe-backend.vercel.app/verify", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
+    axios
+      .post("http://localhost:4000/verify", {
         email: email,
         selectedTypes: selectedTypes,
         selectedReasons: selectedReasons,
         "g-recaptcha-response": token,
-      }),
-    })
-      .then((res) => res.json())
+      })
       .then((res) => {
         setLoading(false);
-        if (res.success) {
-          console.log("CAPTCHA Verification Successful:", res);
+        if (res.data.success) {
+          console.log("CAPTCHA Verification Successful:", res.data);
           navigate("/success");
         } else {
-          console.error("CAPTCHA Verification Failed:", res);
+          console.error("CAPTCHA Verification Failed:", res.data);
         }
-        setResponse(res);
+        setResponse(res.data);
       })
-
       .catch((error) => {
         console.error("CAPTCHA Verification Error:", error);
       });
