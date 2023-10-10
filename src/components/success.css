@@ -1,0 +1,54 @@
+.success-container {
+  max-width: 620px;
+  margin: 0 auto;
+  padding: 8.4rem 3rem;
+  border-radius: 5px;
+  font-size: 18px;
+  background-color: #fafafa;
+}
+
+.success-container > .success-check {
+  width: 20%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.success-title {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  font-weight: 700;
+  color: #111010;
+}
+
+.success-description {
+  text-align: center;
+  font-size: 18px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  padding: 0 3rem;
+}
+
+@media (max-width: 480px) {
+  .success-container {
+    padding: 9.03rem 0;
+  }
+
+  .success-description {
+    padding: 0;
+  }
+
+  .success-title {
+    font-size: 16px;
+  }
+
+  .success-description {
+    font-size: 16px;
+  }
+
+  .success-container > .success-check {
+    width: 28%;
+  }
+}
