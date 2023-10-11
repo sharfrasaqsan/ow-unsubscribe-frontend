@@ -84,7 +84,7 @@ function Unsubscribeform() {
   const submitData = (token) => {
     // call a backend API to verify reCAPTCHA response
     axios
-      .post("http://localhost:4000/verify", {
+      .post("https://nodejs-basic-liart.vercel.app/verify", {
         email: email,
         selectedTypes: selectedTypes,
         selectedReasons: selectedReasons,
